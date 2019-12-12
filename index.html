@@ -37,6 +37,7 @@
     h1 {
       color: var(--wasm-color);
       padding-left: var(--page-border-spacing);
+      margin: 0;
     }
   </style>
 </head>
@@ -44,7 +45,7 @@
   <header>
     <div id="logo"></div>
   </header>
-  <input id="input" value="WebAssembly" />
+  <input id="input" placeholder="WebAssembly" />
   <h1 id="title"></h1>
   <script src="./pkg/wasm_playground.js"></script>
   <script>
@@ -52,11 +53,13 @@
       await wasm_bindgen('./pkg/wasm_playground_bg.wasm')
       const input = document.querySelector('#input')
       input.addEventListener('keyup', e => setGreeting(e.target.value))
-      setGreeting(input.value)
+      setGreeting(input.placeholder)
     })
 
     function setGreeting(value) {
-      const greeting = wasm_bindgen.greeting(value)
+      const input = document.querySelector('#input')
+      const val = value !== '' ? value : input.placeholder
+      const greeting = wasm_bindgen.greeting(val)
       document.querySelector('#title').innerHTML = greeting
     }
   </script>
