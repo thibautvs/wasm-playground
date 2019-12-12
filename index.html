@@ -2,6 +2,11 @@
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
   <style type="text/css">
+    :root {
+      --wasm-color: #6661f0;
+      --page-border-spacing: 20px;
+    }
+
     body {
       font-family: Helvetica, Arial, sans-serif;
       margin: 0;
@@ -9,7 +14,7 @@
 
     header {
       background-color: #ebecef;
-      padding: 20px;
+      padding: var(--page-border-spacing);
     }
 
     #logo {
@@ -24,14 +29,14 @@
 
     input {
       font-size: 20px;
-      border: 1px solid #6661f0;
-      margin: 40px 20px;
+      border: 1px solid var(--wasm-color);
+      margin: 40px var(--page-border-spacing);
       padding: 6px;
     }
 
     h1 {
-      color: #6661f0;
-      padding: 0 0 0 20px;
+      color: var(--wasm-color);
+      padding-left: var(--page-border-spacing);
     }
   </style>
 </head>
